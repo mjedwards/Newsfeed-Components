@@ -112,3 +112,68 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+let article = document.querySelector(".articles");
+
+function createArticle (d, i) {
+
+  // created elements
+  let headerTwo = document.createElement("h2");
+  let paragraph = document.createElement("p");
+  let paragraphTwo = document.createElement("p");
+  let paragraphThree = document.createElement("p");
+  let span = document.createElement("span");
+
+  // added classes to the elemets
+  paragraph.classList.add('date');
+  paragraphTwo.classList.add('date');
+  paragraphThree.classList.add('date');
+  span.classList.add('expandButton');
+  
+  // added eventListener to span
+  span.addEventListener('click', function() {
+    article.classList.toggle('article-open');
+  });
+
+
+  // appended the created elements to div.articles container  
+  // article.appendChild(headerTwo);
+  // article.appendChild(paragraph);
+  // article.appendChild(paragraphTwo);
+  // article.appendChild(paragraphThree);
+  // article.appendChild(span);
+
+  
+    article.appendChild(headerTwo);
+    article.appendChild(paragraph);
+    article.appendChild(paragraphTwo);
+    article.appendChild(paragraphThree);
+    article.appendChild(span);
+    headerTwo.textContent = d[i].title;
+    paragraph.textContent = d[i].firstParagraph;
+    paragraphTwo.textContent = d[i].secondParagraph;
+    paragraphThree.textContent = d[i].thirdParagraph;
+    span.textContent = 'CLICK ME'; 
+  
+  
+    return article;
+}
+
+
+// for(let i = 0; i < data.length; i++) {
+//   article.appendChild(headerTwo);
+//   article.appendChild(paragraph);
+//   article.appendChild(paragraphTwo);
+//   article.appendChild(paragraphThree);
+//   article.appendChild(span);
+//   headerTwo.textContent = d[i].title;
+//   paragraph.textContent = d[i].firstParagraph;
+//   paragraphTwo.textContent = d[i].secondParagraph;
+//   paragraphThree.textContent = d[i].thirdParagraph;
+//   span.textContent = 'CLICK ME'; 
+// }
+
+
+createArticle(data, 0);
+createArticle(data, 1);
+createArticle(data, 2);
+createArticle(data, 3);
